@@ -1,0 +1,15 @@
+{# More like extending the @yield in the main.html file #}
+{%  extends 'main.html' %}
+
+{% block content %}
+
+    <h3>Rooms</h3>
+
+    <ul>
+        {% for room in rooms %}
+            <li>{{ room.name }}</li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

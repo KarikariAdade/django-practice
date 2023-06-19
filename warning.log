@@ -1,0 +1,9 @@
+room id 6
+New logger file exists here 6
+I: 1
+I: 2
+I: 3
+I: 4
+I: 5
+I: 6
+id is equal {'id': '6', 'name': 'hello Room 7'}

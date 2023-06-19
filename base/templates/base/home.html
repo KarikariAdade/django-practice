@@ -1,0 +1,45 @@
+{# More like extending the @yield in the main.html file #}
+{%  extends 'main.html' %}
+
+{% block content %}
+    <style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    </style>
+<div class="home-container">
+    <div>
+        <h3>Browse Topics</h3>
+        <hr>
+        <div>
+            <a href="{% url 'home' %}">All Topics</a>
+        </div>
+            {% for topic in topics %}
+                <div>
+                    <a href="{% url 'home' %}?q={{ topic.name }}">{{ topic.name }}</a>
+                </div>
+            {%  endfor %}
+    </div>
+
+    <div>
+        <h3>{{  room_count }} rooms available </h3>
+        <a href="{% url 'room.create' %}">Create Room</a>
+
+        <ul>
+            {% for room in rooms %}
+                {% if request.user == room.host %}
+                <a href="{% url 'room.update' room.id %}">Update</a>
+                <a href="{% url 'room.delete' room.id %}">Delete</a>
+                {% endif %}
+                <span>@{{ room.host.username }}</span>
+                <li><a href="{% url 'room.details' room.id room.name %}">{{ room.name }}</a> </li>
+                <small>{{  room.topic.name }}</small>
+                <hr>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Bud</title>
+</head>
+<body>
+
+<a href="{% url 'home' %}">HomePage</a>
+<a href="{% url 'room' %}">Room</a>
+
+<br><br>
+<form method="GET" action="{% url 'home' %}">
+    <input type="text" name="q" placeholder="Search Rooms ...">
+</form>
+
+{% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Log Out</a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{# More like @yield in laravel #}
+{%  block content %}
+
+{% endblock %}
+
+
+</body>
+</html>
