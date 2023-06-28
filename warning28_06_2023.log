@@ -1,0 +1,17 @@
+Internal Server Error: /profile/update/
+Traceback (most recent call last):
+  File "D:\Projects\IdeaProjects\studyBud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\IdeaProjects\studyBud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\IdeaProjects\studyBud\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\IdeaProjects\studyBud\base\views.py", line 226, in updateUser
+    form = UserForm(instance=user)  # Get initial user value
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\IdeaProjects\studyBud\venv\Lib\site-packages\django\forms\models.py", line 350, in __init__
+    raise ValueError("ModelForm has no model class specified.")
+ValueError: ModelForm has no model class specified.
