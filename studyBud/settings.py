@@ -38,10 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Whenever you build an app with "python manage.py startup base", you need to add the application to this array
-    'base.apps.BaseConfig'  # Base application
+    'base.apps.BaseConfig',  # Base application
+
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # Add Cors middleware from the Cors package, should be placed as high as possible
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +54,24 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
+
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
 
 ROOT_URLCONF = 'studyBud.urls'
 
@@ -165,3 +187,6 @@ LOGGING = {
         }
     }
 }
+
+
+CORS_ALLOW_ALL_ORIGINS = True  # Allows all urls to access the api endpoints

@@ -1,0 +1,8 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.getRoute),
+    path('rooms/', views.getRooms),
+    path('room/<int:room_id>', views.getRoom),
+]

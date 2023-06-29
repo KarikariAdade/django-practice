@@ -27,5 +27,7 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('base.urls'))  # Include the url file in the base app
+    path('', include('base.urls')),  # Include the url file in the base app
+    path('api/', include('base.api.urls')),
+    path('api-auth/', include('rest_framework.urls'))
 ]
